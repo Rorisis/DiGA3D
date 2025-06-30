@@ -65,7 +65,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <!-- <img src="./static/images/icon.svg" width="60" height="60"> -->
-          <h1 class="title is-2 publication-title">🪄DiGA3D: Coarse-to-Fine Diffusional Propagation of Geometry and Appearance for Versatile 3D Inpainting</h1>
+          <h1 class="title is-2 publication-title">🪄<span style="color: #5497da;">DiGA</span><span style="color: #3c9f7e;">3D</span>: Coarse-to-Fine <span style="color: #5497da;">Di</span>ffusional Propagation of <span style="color: #5497da;">G</span>eometry and <span style="color: #5497da;">A</span>ppearance for Versatile <span style="color: #2f9b77;">3D</span> Inpainting</h1>
           
           <div class="is-size-4 publication-authors">
               <span class="author-block"><b style="color: #676666;">ICCV 2025</b></span>
@@ -113,12 +113,12 @@
 
               <!-- Github link -->
               <span class="link-block">
-                <a href="https://github.com/Rorisis/" target="_blank"
+                <a href="https://github.com/Rorisis/DiGA3D" target="_blank"
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                   <i class="fab fa-github"></i>
                 </span>
-                <span>Code</span>
+                <span>Code (Coming Soon)</span>
               </a>
             </span>
         </div>
@@ -128,21 +128,15 @@
   </div>
 </section>
 
-
-  
-<!-- <div class="my-hr">
-  <hr>
-</div> -->
-
-<section class="section">
+<section class="section pt-0">
   <div class="container is-max-desktop">  
   <div class="columns is-centered has-text-centered">
     <div class="column is-full-width">
-      <video id="replay-video" autoplay loop muted width="80%">
+      <video id="replay-video" autoplay loop muted width="100%" style="margin-top: -2.5rem">
         <source src="./static/videos/cover_figure.mp4"
                 type="video/mp4">
       </video>
-      <div class="content has-text-justified">
+      <div class="content has-text-justified" style="margin-top: -0.5rem">
         <p>
           <b>DiGA3D is a versatile 3D inpainting framework</b> guided
           by text prompts, supporting multiple inpainting tasks including object replacement, removal, and re-texturing, etc.
@@ -243,7 +237,7 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
           <h2 class="title is-3">Object Replacement</h2>
           <div class="content has-text-justified">
             <p>
-              Our DiGA3D allows for replacing one object with another using text prompts. 
+              Our DiGA3D allows for replacing one object with another using text prompts. The first three videos are from the SPIn-NeRF dataset, trained at a resolution of 1008 &times; 567. The fourth video is from the statue dataset, trained at a resolution of 504 &times; 378.
             </p>
           </div>
           <table>
@@ -265,28 +259,28 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
     
             <tr>
               <td style="width: 23.5%">
-                <video id="matting-video" autoplay controls muted loop height="100%">
+                <video id="replay-video" autoplay loop muted width="100%">
                   <source src="./static/videos/10_ori_spiral.mp4"
                           type="video/mp4">
                 </video>
               </td>
     
               <td style="width: 23.5%">
-                <video id="matting-video" autoplay controls muted loop height="100%">
+                <video id="replay-video" autoplay loop muted width="100%">
                   <source src="./static/videos/10_bonsai_spiral.mp4"
                           type="video/mp4">
                 </video>
               </td>
               <td></td>
               <td style="width: 23.5%">
-                <video id="matting-video" autoplay controls muted loop height="100%">
+                <video id="replay-video" autoplay loop muted width="100%">
                   <source src="./static/videos/1_ori_spiral.mp4"
                           type="video/mp4">
                 </video>
               </td>
     
               <td style="width: 23.5%">
-                <video id="matting-video" autoplay controls muted loop height="100%">
+                <video id="replay-video" autoplay loop muted width="100%">
                   <source src="./static/videos/1_basketball_spiral.mp4"
                           type="video/mp4">
                 </video>
@@ -305,20 +299,20 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
                 Original Views
               </td>
               <td>
-                "statue" -> "house model"
+                "statue" -> "a vase"
               </td>
             </tr>
     
             <tr>
               <td style="width: 23.5%">
-                <video id="matting-video" autoplay controls muted loop height="100%">
+                <video id="replay-video" autoplay loop muted width="100%">
                   <source src="./static/videos/3_ori_spiral.mp4"
                           type="video/mp4">
                 </video>
               </td>
     
               <td style="width: 23.5%">
-                <video id="matting-video" autoplay controls muted loop height="100%">
+                <video id="replay-video" autoplay loop muted width="100%">
                   <source src="./static/videos/3_vangogh_spiral.mp4"
                           type="video/mp4">
                 </video>
@@ -326,7 +320,7 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
               <td></td>
               <td style="width: 23.5%">
                 <div style="position: relative; padding-top: 57.5%;"> 
-                  <video id="matting-video" autoplay controls muted loop 
+                  <video id="replay-video" autoplay loop muted 
                          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                     <source src="./static/videos/statue_ori_spiral.mp4" type="video/mp4">
                   </video>
@@ -335,9 +329,9 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
     
               <td style="width: 23.5%">
                 <div style="position: relative; padding-top: 57.5%;"> 
-                  <video id="matting-video" autoplay controls muted loop 
+                  <video id="replay-video" autoplay loop muted 
                          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-                    <source src="./static/videos/statue_house_spiral.mp4" type="video/mp4">
+                    <source src="./static/videos/statue_vase_spiral.mp4" type="video/mp4">
                   </video>
                 </div>
               </td>
@@ -346,9 +340,6 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
           </table>
           </div>
         </div>
-
-    
-    <hr>
 
     
     <hr>
@@ -379,28 +370,28 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
 
         <tr>
           <td style="width: 23.5%">
-            <video id="matting-video" autoplay controls muted loop height="100%">
+            <video id="replay-video" autoplay loop muted width="100%">
               <source src="./static/videos/10_ori_spiral.mp4"
                       type="video/mp4">
             </video>
           </td>
 
           <td style="width: 23.5%">
-            <video id="matting-video" autoplay controls muted loop height="100%">
+            <video id="replay-video" autoplay loop muted width="100%">
               <source src="./static/videos/10_edit_spiral.mp4"
                       type="video/mp4">
             </video>
           </td>
           <td></td>
           <td style="width: 23.5%">
-            <video id="matting-video" autoplay controls muted loop height="100%">
+            <video id="replay-video" autoplay loop muted width="100%">
               <source src="./static/videos/3_ori_spiral.mp4"
                       type="video/mp4">
             </video>
           </td>
 
           <td style="width: 23.5%">
-            <video id="matting-video" autoplay controls muted loop height="100%">
+            <video id="replay-video" autoplay loop muted width="100%">
               <source src="./static/videos/3_edit_box_spiral.mp4"
                       type="video/mp4">
             </video>
@@ -425,38 +416,38 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
 
         <tr>
           <td style="width: 23.5%">
-            <video id="matting-video" autoplay controls muted loop height="100%">
+            <video id="replay-video" autoplay loop muted width="100%">
               <source src="./static/videos/llff_flower_ori_spiral.mp4"
                       type="video/mp4">
             </video>
           </td>
 
           <td style="width: 23.5%">
-            <video id="matting-video" autoplay controls muted loop height="100%">
+            <video id="replay-video" autoplay loop muted width="100%">
               <source src="./static/videos/llff_flower_edit_spiral.mp4"
                       type="video/mp4">
             </video>
           </td>
           <td></td>
           <td style="width: 23.5%">
-            <video id="matting-video" autoplay controls muted loop height="100%">
+            <video id="replay-video" autoplay loop muted width="100%">
               <source src="./static/videos/llff_fortress_ori_spiral.mp4"
                       type="video/mp4">
             </video>
           </td>
 
           <td style="width: 23.5%">
-            <video id="matting-video" autoplay controls muted loop height="100%">
+            <video id="replay-video" autoplay loop muted width="100%">
               <source src="./static/videos/llff_fortress_edit_spiral.mp4"
                       type="video/mp4">
             </video>
           </td>
         </tr>
-
       </table>
       </div>
     </div>
 
+    <hr>
     <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
           <h2 class="title is-3">Object Removal</h2>
@@ -467,28 +458,37 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
               </p>
             </div>
             <table>
+            <tr>
               <div class="columns is-centered">
-                <div class="column is-one-third">
+                <div class="column is-one-second">
                   <div class="video-compare-container" id="10">
-                    <video class="video" id="video0" loop playsinline autoPlay muted src="./static/videos/10_remove.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
-                    <canvas height=0 class="videoMerge" id="video0Merge" style="border-radius: 10px;"></canvas>
+                    <video class="video" id="video0" loop playsinline autoPlay muted src="./static/videos/12_remove.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=0 class="videoMerge" id="video0Merge" style="border-radius: 7px;"></canvas>
                   </div>
                 </div>
         
-                <div class="column is-one-third">
+                <div class="column is-one-second">
                   <div class="video-compare-container" id="12">
-                    <video class="video" id="video1" loop playsinline autoPlay muted src="./static/videos/12_remove_sp.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
-                    <canvas height=0 class="videoMerge" id="video1Merge" style="border-radius: 10px;"></canvas>
+                    <video class="video" id="video1" loop playsinline autoPlay muted src="./static/videos/10_remove.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=0 class="videoMerge" id="video1Merge" style="border-radius: 7px;"></canvas>
                   </div>
                 </div>
-                
-                <div class="column is-one-third">
-                  <div class="video-compare-container" id="trash">
-                    <video class="video" id="video3" loop playsinline autoPlay muted src="./static/videos/trash_remove_sp.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
-                    <canvas height=0 class="videoMerge" id="video3Merge" style="border-radius: 10px;"></canvas>
+              </div>
+              </tr>
+              <tr>
+                <div class="columns is-centered">
+                <div class="column is-one-second">
+                  <div class="video-compare-container" id="book">
+                    <video class="video" id="video2" loop playsinline autoPlay muted src="./static/videos/book_remove.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=0 class="videoMerge" id="video2Merge" style="border-radius: 7px;"></canvas>
                   </div>
                 </div>
-
+                <div class="column is-one-second">
+                  <div class="video-compare-container" id="statue">
+                    <video class="video" id="video3" loop playsinline autoPlay muted src="./static/videos/trash_remove.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=0 class="videoMerge" id="video3Merge" style="border-radius: 7px;"></canvas>
+                  </div>
+                </tr>
               </div>
           </table>
         </div>
@@ -497,7 +497,7 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
   </section>
 
   
-  
+
     <!--End BibTex citation -->
 
 <section class="hero is-small">
@@ -527,7 +527,10 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
   <p>
     <a name="llff" id="llff"></a>
     [5] Mildenhall B, Srinivasan P P, Ortiz-Cayon R, et al. Local light field fusion: Practical view synthesis with prescriptive sampling guidelines. TOG, 2019.
-
+  </p>
+  <p>
+    <a name="gscream" id="gscream"></a>
+    [6] Wang Y, Wu Q, Zhang G, Xu D. Learning 3D Geometry and Feature Consistent Gaussian Splatting for Object Removal. ECCV, 2024.
   </p>
   </div>
         </div>
@@ -536,22 +539,22 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
 
   </div>   
 </section>  
-<!-- <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.video-compare-container').forEach(function (container, index) {
-      console.log("Index of the container:", index);
-      container.addEventListener('click', function () {
-        if (index === 0) {
-          this.classList.toggle('expand-right');
-        } else if (index === 2) {
-          this.classList.toggle('expand-left');
-        } else {
-          this.classList.toggle('expanded');
-        }
-      });
-    });
-  });
-</script> -->
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre>
+<code>
+  @inproceedings{pan2025diga3d,
+    title={DiGA3D: Coarse-to-Fine Diffusional Propagation of Geometry and Appearance for Versatile 3D Inpainting},
+    author={Pan, Jingyi and Xu, Dan and Luo, Qiong},
+    booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+    year={2025}
+    }
+</code></pre>
+  </div>
+</section>
 
 </body>
 </html>

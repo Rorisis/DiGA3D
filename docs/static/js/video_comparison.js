@@ -49,18 +49,18 @@ function playVids(videoId) {
 
             // Draw circle
             mergeContext.arc(currX, arrowPosY, arrowLength*0.7, 0, Math.PI * 2, false);
-            mergeContext.fillStyle = "#FFD79340";
-            mergeContext.fill()
+            mergeContext.fillStyle = "#f5efeb";
+            // mergeContext.fill()
             //mergeContext.strokeStyle = "#444444";
-            //mergeContext.stroke()
+            mergeContext.stroke()
             
             // Draw border
             mergeContext.beginPath();
             mergeContext.moveTo(vidWidth*position, 0);
             mergeContext.lineTo(vidWidth*position, vidHeight);
             mergeContext.closePath()
-            mergeContext.strokeStyle = "#444444";
-            mergeContext.lineWidth = 5;            
+            mergeContext.strokeStyle = "#f5efeb";
+            mergeContext.lineWidth = 6;            
             mergeContext.stroke();
 
             // Draw arrow
@@ -91,7 +91,7 @@ function playVids(videoId) {
             mergeContext.closePath();
 
             mergeContext.fillStyle = "#444444";
-            mergeContext.fill();
+            // mergeContext.fill();
 
             
             
