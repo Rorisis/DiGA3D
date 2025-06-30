@@ -17,7 +17,7 @@
 - [ ] Release code.
 - [ ] Release test samples.
 
-Code will be released. Please stay tuned.
+Codes will be released. Please stay tuned :D
 
 ## Citation
 ```
