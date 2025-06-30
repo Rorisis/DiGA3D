@@ -1,1 +1,1 @@
-# DiGA3D
+# 🪄DiGA3D: Coarse-to-Fine Diffusional Propagation of Geometry and Appearance for Versatile 3D Inpainting
