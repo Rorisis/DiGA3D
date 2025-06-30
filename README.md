@@ -19,7 +19,7 @@
 
 Code will be released. Please stay tuned.
 
-## Citing
+## Citation
 ```
 @inproceedings{pan2025diga3d,
     title={DiGA3D: Coarse-to-Fine Diffusional Propagation of Geometry and Appearance for Versatile 3D Inpainting},
