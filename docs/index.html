@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DiGA3D</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/result.css">
+  <link rel="icon" href="./static/images/icon.svg">
+
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+
+  <meta charset="utf-8">
+    <title>4 PLY Visualization</title>
+    <style>
+        .ply-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .ply-view {
+            width: 48%;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!-- <img src="./static/images/icon.svg" width="60" height="60"> -->
+          <h1 class="title is-2 publication-title">🪄DiGA3D: Coarse-to-Fine Diffusional Propagation of Geometry and Appearance for Versatile 3D Inpainting</h1>
+          
+          <div class="is-size-4 publication-authors">
+              <span class="author-block"><b style="color: #676666;">ICCV 2025</b></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <a href="http://scholar.google.com/citations?user=H_oIKS8AAAAJ&hl=zh-CN" target="_blank">Jingyi Pan</a><sup>1</sup>,</span>
+            <a href="https://www.danxurgb.net/" target="_blank">Dan Xu</a><sup>2,*</sup>,</span>
+                  </span>
+            <a href="https://www.cse.ust.hk/~luo/" target="_blank">Qiong Luo</a><sup>1,2,*</sup>,</span>
+                  </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>DSA, HKUST(GZ)</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>CSE, HKUST</span>
+            <div class="eql-cntrb" style="display: block; margin-top: 0.5rem;">
+              <small><sup>*</sup>Corresponding authors</small>
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+                 <!-- PDF link -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/num" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper</span>
+              </a>
+            </span>
+
+              <!-- ArXiv abstract Link -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/num" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>arXiv</span>
+              </a>
+            </span>
+
+              <!-- Github link -->
+              <span class="link-block">
+                <a href="https://github.com/Rorisis/" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            </span>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+<!-- <div class="my-hr">
+  <hr>
+</div> -->
+
+<section class="section">
+  <div class="container is-max-desktop">  
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-full-width">
+      <video id="replay-video" autoplay loop muted width="80%">
+        <source src="./static/videos/cover_figure.mp4"
+                type="video/mp4">
+      </video>
+      <div class="content has-text-justified">
+        <p>
+          <b>DiGA3D is a versatile 3D inpainting framework</b> guided
+          by text prompts, supporting multiple inpainting tasks including object replacement, removal, and re-texturing, etc.
+        </p>
+    </div>
+    </div>
+  </div>
+
+    <hr>
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Developing a unified pipeline that enables users to remove, re-texture, or replace objects in a versatile manner is crucial for text-guided 3D inpainting. However, there are still challenges in performing multiple 3D inpainting tasks within a unified framework: 1) Single reference inpainting methods lack robustness when dealing with views that are far from the reference view. 2) Appearance inconsistency arises when independently inpainting multi-view images with 2D diffusion priors; 3) Geometry inconsistency limits performance when there are significant geometric changes in the inpainting regions. 
+            To tackle these challenges, we introduce <b>DiGA3D</b>, a novel and versatile 3D inpainting pipeline that leverages diffusion models to propagate consistent appearance and geometry in a coarse-to-fine manner. First, DiGA3D develops a robust strategy for selecting multiple reference views to reduce errors during propagation. Next, DiGA3D designs an Attention Feature Propagation (AFP) mechanism that propagates attention features from the selected reference views to other views via diffusion models to maintain appearance consistency. Furthermore, DiGA3D introduces a Texture-Geometry Score Distillation Sampling (TG-SDS) loss to further improve the geometric consistency of inpainted 3D scenes.
+Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiveness of our method. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <hr>
+
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Method</h2>
+          <img src="./static/images/framework.png">
+          <br>
+          <br>
+          <div class="content has-text-justified">
+            <p>
+              <b>Our proposed framework.</b> Before performing 3D inpainting, we first calculate the camera pose using COLMAP <a href="#sfm">[1]</a> and extract masks from mask prompts T<sub>m</sub>. 
+              We then apply k-means clustering to group the views based on their camera centers and select the views closest to the cluster centers as the reference views. 
+              In the coarse stage, we employ DDIM Inversion <a href="#diffusion">[2]</a> to generate deterministic latents, which are then used to produce coarsely consistent inpainting results with a 2D inpainter equipped 
+              with the AFP module. In the fine stage, we utilize ControlNet <a href="#controlnet">[3]</a>, leveraging texture and depth images as conditions, 
+              to further refine the 3D inpainting results by TG-SDS loss. In this scene, we designate T<sub>p</sub> as "a cake" and T<sub>n</sub> as "watering can" to replace the watering can with a cake.
+            </p>
+          </div> 
+          
+        </div>
+      </div>
+    
+
+      <hr>
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Object Replacement</h2>
+          <div class="content has-text-justified">
+            <div class="content has-text-justified">
+              <p>
+                Our DiGA3D allows for replacing one object with another using text prompts. 
+              </p>
+            </div>
+            <table>
+            <tr>
+              <div class="columns is-centered">
+                <div class="column is-one-second">
+                  <div class="video-compare-container" id="10">
+                    <video class="video" id="video0" loop playsinline autoPlay muted src="./static/videos/10_replace_bonsai.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=0 class="videoMerge" id="video0Merge" style="border-radius: 10px;"></canvas>
+                  </div>
+                </div>
+        
+                <div class="column is-one-second">
+                  <div class="video-compare-container" id="3">
+                    <video class="video" id="video1" loop playsinline autoPlay muted src="./static/videos/3_replace_portrait.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=0 class="videoMerge" id="video1Merge" style="border-radius: 10px;"></canvas>
+                  </div>
+                </div>
+              </div>
+            </tr>
+            <tr>
+              <div class="columns is-centered">
+                <div class="column is-one-second">
+                  <div class="video-compare-container" id="1">
+                    <video class="video" id="video2" loop playsinline autoPlay muted src="./static/videos/1_replace_basketball.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=0 class="videoMerge" id="video2Merge" style="border-radius: 10px;"></canvas>
+                  </div>
+                </div>
+        
+                <div class="column is-one-second">
+                  <div class="video-compare-container" id="statue">
+                    <video class="video" id="video3" loop playsinline autoPlay muted src="./static/videos/statue_replace_house.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=10 class="videoMerge" id="video3Merge" style="border-radius: 10px;"></canvas>
+                  </div>
+                </div>
+              </div>
+            </tr>
+          </table>
+        </div>
+      </div>
+      </div> -->
+    
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Object Replacement</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our DiGA3D allows for replacing one object with another using text prompts. 
+            </p>
+          </div>
+          <table>
+            <tr>
+              <td>
+                Original Views
+              </td>
+              <td>
+                "watering can" -> "bonsai"
+              </td>
+              <td></td>
+              <td>
+                Original Views
+              </td>
+              <td>
+                "box" -> "basketball"
+              </td>
+            </tr>
+    
+            <tr>
+              <td style="width: 23.5%">
+                <video id="matting-video" autoplay controls muted loop height="100%">
+                  <source src="./static/videos/10_ori_spiral.mp4"
+                          type="video/mp4">
+                </video>
+              </td>
+    
+              <td style="width: 23.5%">
+                <video id="matting-video" autoplay controls muted loop height="100%">
+                  <source src="./static/videos/10_bonsai_spiral.mp4"
+                          type="video/mp4">
+                </video>
+              </td>
+              <td></td>
+              <td style="width: 23.5%">
+                <video id="matting-video" autoplay controls muted loop height="100%">
+                  <source src="./static/videos/1_ori_spiral.mp4"
+                          type="video/mp4">
+                </video>
+              </td>
+    
+              <td style="width: 23.5%">
+                <video id="matting-video" autoplay controls muted loop height="100%">
+                  <source src="./static/videos/1_basketball_spiral.mp4"
+                          type="video/mp4">
+                </video>
+              </td>
+            </tr>
+    
+            <tr>
+              <td>
+                Original Views
+              </td>
+              <td>
+                "bag" -> "Van Gogh portrait"
+              </td>
+              <td></td>
+              <td>
+                Original Views
+              </td>
+              <td>
+                "statue" -> "house model"
+              </td>
+            </tr>
+    
+            <tr>
+              <td style="width: 23.5%">
+                <video id="matting-video" autoplay controls muted loop height="100%">
+                  <source src="./static/videos/3_ori_spiral.mp4"
+                          type="video/mp4">
+                </video>
+              </td>
+    
+              <td style="width: 23.5%">
+                <video id="matting-video" autoplay controls muted loop height="100%">
+                  <source src="./static/videos/3_vangogh_spiral.mp4"
+                          type="video/mp4">
+                </video>
+              </td>
+              <td></td>
+              <td style="width: 23.5%">
+                <div style="position: relative; padding-top: 57.5%;"> 
+                  <video id="matting-video" autoplay controls muted loop 
+                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <source src="./static/videos/statue_ori_spiral.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </td>
+    
+              <td style="width: 23.5%">
+                <div style="position: relative; padding-top: 57.5%;"> 
+                  <video id="matting-video" autoplay controls muted loop 
+                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <source src="./static/videos/statue_house_spiral.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </td>
+            </tr>
+    
+          </table>
+          </div>
+        </div>
+
+    
+    <hr>
+
+    
+    <hr>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Object Re-Texturing</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our DiGA3D also enables object re-texturing (e.g., changing colors, materials, styles, etc.) using text prompts. We present examples from the SPIn-NeRF <a href="#spinnef">[4]</a> and LLFF <a href="#llff">[5]</a> datasets.
+          </p>
+        </div>
+      <table>
+        <tr>
+          <td>
+            Original Views
+          </td>
+          <td>
+            "watering can" -> "bronze watering can"
+          </td>
+          <td></td>
+          <td>
+            Original Views
+          </td>
+          <td>
+            "box" -> "brown wooden box"
+          </td>
+        </tr>
+
+        <tr>
+          <td style="width: 23.5%">
+            <video id="matting-video" autoplay controls muted loop height="100%">
+              <source src="./static/videos/10_ori_spiral.mp4"
+                      type="video/mp4">
+            </video>
+          </td>
+
+          <td style="width: 23.5%">
+            <video id="matting-video" autoplay controls muted loop height="100%">
+              <source src="./static/videos/10_edit_spiral.mp4"
+                      type="video/mp4">
+            </video>
+          </td>
+          <td></td>
+          <td style="width: 23.5%">
+            <video id="matting-video" autoplay controls muted loop height="100%">
+              <source src="./static/videos/3_ori_spiral.mp4"
+                      type="video/mp4">
+            </video>
+          </td>
+
+          <td style="width: 23.5%">
+            <video id="matting-video" autoplay controls muted loop height="100%">
+              <source src="./static/videos/3_edit_box_spiral.mp4"
+                      type="video/mp4">
+            </video>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Original Views
+          </td>
+          <td>
+            "red flowers" -> "yellow flowers"
+          </td>
+          <td></td>
+          <td>
+            Original Views
+          </td>
+          <td>
+            "fortress" -> "origami fortress"
+          </td>
+        </tr>
+
+        <tr>
+          <td style="width: 23.5%">
+            <video id="matting-video" autoplay controls muted loop height="100%">
+              <source src="./static/videos/llff_flower_ori_spiral.mp4"
+                      type="video/mp4">
+            </video>
+          </td>
+
+          <td style="width: 23.5%">
+            <video id="matting-video" autoplay controls muted loop height="100%">
+              <source src="./static/videos/llff_flower_edit_spiral.mp4"
+                      type="video/mp4">
+            </video>
+          </td>
+          <td></td>
+          <td style="width: 23.5%">
+            <video id="matting-video" autoplay controls muted loop height="100%">
+              <source src="./static/videos/llff_fortress_ori_spiral.mp4"
+                      type="video/mp4">
+            </video>
+          </td>
+
+          <td style="width: 23.5%">
+            <video id="matting-video" autoplay controls muted loop height="100%">
+              <source src="./static/videos/llff_fortress_edit_spiral.mp4"
+                      type="video/mp4">
+            </video>
+          </td>
+        </tr>
+
+      </table>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Object Removal</h2>
+          <div class="content has-text-justified">
+            <div class="content has-text-justified">
+              <p>
+                Our DiGA3D enables the removal of specific objects using text prompts.
+              </p>
+            </div>
+            <table>
+              <div class="columns is-centered">
+                <div class="column is-one-third">
+                  <div class="video-compare-container" id="10">
+                    <video class="video" id="video0" loop playsinline autoPlay muted src="./static/videos/10_remove.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=0 class="videoMerge" id="video0Merge" style="border-radius: 10px;"></canvas>
+                  </div>
+                </div>
+        
+                <div class="column is-one-third">
+                  <div class="video-compare-container" id="12">
+                    <video class="video" id="video1" loop playsinline autoPlay muted src="./static/videos/12_remove_sp.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=0 class="videoMerge" id="video1Merge" style="border-radius: 10px;"></canvas>
+                  </div>
+                </div>
+                
+                <div class="column is-one-third">
+                  <div class="video-compare-container" id="trash">
+                    <video class="video" id="video3" loop playsinline autoPlay muted src="./static/videos/trash_remove_sp.mp4" onplay="resizeAndPlay(this)" height="50%"></video>
+                    <canvas height=0 class="videoMerge" id="video3Merge" style="border-radius: 10px;"></canvas>
+                  </div>
+                </div>
+
+              </div>
+          </table>
+        </div>
+      </div>
+      </div>
+  </section>
+
+  
+  
+    <!--End BibTex citation -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column custom-width">
+          <!-- <h2 class="title is-3"></h2> -->
+          <div class="content has-text-justified">
+  <p>
+    <a name="sfm" id="sfm"></a>
+    [1] Schonberger, Johannes L., and Jan-Michael Frahm. Structure-from-motion revisited. CVPR, 2016.
+  </p>
+  <p>
+    <a name="diffusion" id="diffusion"></a>
+    [2] Song J, Meng C, Ermon S. Denoising diffusion implicit models. ICLR, 2021.
+  </p>
+  <p>
+    <a name="controlnet" id="controlnet"></a>
+    [3] Zhang L, Rao A, Agrawala M. Adding conditional control to text-to-image diffusion models. ICCV, 2023.
+  </p>
+  <p>
+    <a name="spinnerf" id="spinnerf"></a>
+    [4] Mirzaei A, Aumentado-Armstrong T, Derpanis K G, et al. SPIn-NeRF: Multiview segmentation and perceptual inpainting with neural radiance fields. CVPR, 2023.
+  </p>
+  
+  <p>
+    <a name="llff" id="llff"></a>
+    [5] Mildenhall B, Srinivasan P P, Ortiz-Cayon R, et al. Local light field fusion: Practical view synthesis with prescriptive sampling guidelines. TOG, 2019.
+
+  </p>
+  </div>
+        </div>
+      </div>
+    </div>  
+
+  </div>   
+</section>  
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.video-compare-container').forEach(function (container, index) {
+      console.log("Index of the container:", index);
+      container.addEventListener('click', function () {
+        if (index === 0) {
+          this.classList.toggle('expand-right');
+        } else if (index === 2) {
+          this.classList.toggle('expand-left');
+        } else {
+          this.classList.toggle('expanded');
+        }
+      });
+    });
+  });
+</script> -->
+
+</body>
+</html>
+
