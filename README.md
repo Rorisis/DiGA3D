@@ -15,7 +15,7 @@
 
 
 
-## To-do
+## To-Do
 
 - [ ] Release paper.
 - [ ] Release code.
