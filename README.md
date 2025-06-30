@@ -7,9 +7,9 @@
 
 > DiGA3D: Coarse-to-Fine Diffusional Propagation of Geometry and Appearance for Versatile 3D Inpainting 
 > 
-> Jingyi Pan, Dan Xu`*`, Qiong Luo`*`.
+> Jingyi Pan, Dan Xu<sup>*</sup>, Qiong Luo<sup>*</sup>.
 >
-> `*`<sub> Corresponding author</sub>
+> <small><sup>*</sup> Corresponding author</small>
 >
 > ICCV 2025
 > 
