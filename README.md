@@ -1,6 +1,6 @@
 # 🪄DiGA3D: Coarse-to-Fine Diffusional Propagation of Geometry and Appearance for Versatile 3D Inpainting
 
->### [Project Page](https://rorisis.github.io/DiGA3D/) | [Arxiv](https://arxiv.org/abs/num)
+>### [Project Page](https://rorisis.github.io/DiGA3D/) | [Arxiv](http://arxiv.org/abs/2507.00429)
 > 
 > [Jingyi Pan](http://scholar.google.com/citations?user=H_oIKS8AAAAJ&hl=zh-CN)<sup>1</sup>, [Dan Xu](https://www.danxurgb.net/)<sup>2</sup>, [Qiong Luo](https://www.cse.ust.hk/~luo/)<sup>1,2</sup> <br>
 > <sup>1</sup>The Hong Kong University of Science and Technology (Guangzhou)<br>
@@ -19,7 +19,7 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
 
 ## To-Do
 
-- [ ] Release paper.
+- ✅ Release paper.
 - [ ] Release code.
 - [ ] Release test samples.
 
