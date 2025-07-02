@@ -19,7 +19,7 @@ Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiven
 
 ## To-Do
 
-- ✅ Release paper.
+✅ Release paper.
 - [ ] Release code.
 - [ ] Release test samples.
 
