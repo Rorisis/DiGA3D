@@ -17,11 +17,14 @@
 We introduce <b>DiGA3D</b>, a novel and versatile 3D inpainting pipeline that leverages diffusion models to propagate consistent appearance and geometry in a coarse-to-fine manner. First, DiGA3D develops a robust strategy for selecting multiple reference views to reduce errors during propagation. Next, DiGA3D designs an Attention Feature Propagation (AFP) mechanism that propagates attention features from the selected reference views to other views via diffusion models to maintain appearance consistency. Furthermore, DiGA3D introduces a Texture-Geometry Score Distillation Sampling (TG-SDS) loss to further improve the geometric consistency of inpainted 3D scenes.
 Extensive experiments on multiple 3D inpainting tasks demonstrate the effectiveness of our method. 
 
+## Test Samples
+The test samples for object removal, object replacement, and object re-texturing are available [here](https://drive.google.com/drive/folders/1D2t7rioAXalvTV453IBzez4aiq8tB7dC?usp=drive_link). You can download the data as a `.zip` file or browse the folders directly from the link.
+
 ## To-Do
 
 - [x] Release paper.
+- [x] [Release test samples](https://drive.google.com/drive/folders/1D2t7rioAXalvTV453IBzez4aiq8tB7dC?usp=drive_link).
 - [ ] Release code.
-- [ ] Release test samples.
 
 Codes will be released. Please stay tuned :D
 
